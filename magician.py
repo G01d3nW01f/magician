@@ -45,12 +45,16 @@ def init():
     print(bcolors.ENDC)
 
 def step1():
+
     print(bcolors.YELLOW)
     print("[+]Chose Your IP ")
     print(bcolors.ENDC)
 
-    try:
-        IP_addrs = subprocess.getoutput("ifconfg")
+    res = subprocess.getoutput("ifconfig")
+
+    if "eth0:" in res:
+
+        IP_addrs = subprocess.getoutput("ifconfig")
         IP_addrs = IP_addrs.split("\n")
         
         IP_array = []
@@ -59,21 +63,24 @@ def step1():
 
         for i in  IP_addrs:
             
-            counter += 1
+
             
             reg = re.search(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",i)
             
             if reg:
-                IP_array.append(i)
-                index_array.append(i)
+                counter = counter + 1
+                IP_array.append(reg.group())
+                index_array.append(counter)
         
-        for i in range(0,len(IP_array)+1):
-            
-            molded = f"{index_array[i]} : {IP_array[i]}"
-            case = "+"+"-"*len(info)+"+"
+        for i in range(0,len(IP_array)):
+
+            value  = index_array[int(i)]
+            value2 = IP_array[int(i)]
+            molded = f"{value} : {value2}"
+            case = "   +"+"-"*len(molded)+"+"
 
             print(case)
-            print(f"|{molded}|")
+            print(f"-->|{molded}|")
             print(case)
         
         print(bcolors.GREEN)
@@ -81,12 +88,12 @@ def step1():
         chosen = input("> ")
         print(bcolors.ENDC)
 
-        lhost = IP_array[int(chosen)]
+        lhost = IP_array[int(chosen)-1]
         
         del IP_addrs,IP_array,index_array,counter,chosen
         return lhost
 
-    except:
+    else:
         print(bcolors.RED)
         print("[!]AhOh... ifconfig command is not available...")
         print(bcolors.GREEN)
@@ -195,7 +202,9 @@ def step4():
     return cmd_number
 
 def step5(lhost,selected_port,cmd_number,host_info):
-     
+
+     cmd_number = int(cmd_number) - 1
+
      generated_payload = armoury.payload_gen(lhost,selected_port,cmd_number)
      
      if os.getuid() != 0:
@@ -221,6 +230,9 @@ def step5(lhost,selected_port,cmd_number,host_info):
      print(bcolors.RED)
      print(payload_info)
      print(bcolors.ENDC)
+
+
+     print(f"{bcolors.YELLOW}[*]Now Working....{bcolors.ENDC}")
 
      os.system(generated_payload)
 
