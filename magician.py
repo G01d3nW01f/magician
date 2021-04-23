@@ -49,7 +49,7 @@ def step1():
 
     res = subprocess.getoutput("ifconfig")
 
-    if "eth0:" in res:
+    try:
 
         IP_addrs = subprocess.getoutput("ifconfig")
         IP_addrs = IP_addrs.split("\n")
@@ -90,7 +90,7 @@ def step1():
         del IP_addrs,IP_array,index_array,counter,chosen
         return lhost
 
-    else:
+    except:
         print(bcolors.RED)
         print("[!]AhOh... ifconfig command is not available...")
         print(bcolors.GREEN)
