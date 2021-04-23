@@ -38,12 +38,9 @@ def init():
         print(bcolors.ENDC)
     
     elif sys.argv[1] == "-q":
-
+        print(bcolors.GREEN)
         magician_banner.main()
-    print(bcolors.GREEN)
-    print("[+]It's On!!!!!!")
-    print(bcolors.ENDC)
-
+        print(bcolors.ENDC)
 def step1():
 
     print(bcolors.YELLOW)
