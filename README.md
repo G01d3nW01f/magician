@@ -1,7 +1,9 @@
 # magician
 automatically generate the script and binary with msfvenom
 
-and work the multi/handler and set the payload and lhost lport in automatically too
+and set the payload and lhost and lport in automatically too
+
+ofcourse multi handler listener will run too in automatically :)
 
 
 
