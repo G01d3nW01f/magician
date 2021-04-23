@@ -193,7 +193,7 @@ def step4():
         else:
             print(bcolors.RED)
             print("[!]Invalid number ")
-            print("[+]Valid number range: 1~17")
+            print("[+]Valid number range: 1~20")
             print(bcolors.ENDC)
     del allow_array
     
