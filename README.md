@@ -18,7 +18,7 @@ Install:
   
     cd magcian
   
-    python3 setup.py
+    sudo python3 setup.py
   
  Usage:
  
@@ -30,4 +30,4 @@ without animation:
   
 uninstall:
 
-    python3 takeoff.py
+    sudo python3 takeoff.py
