@@ -1,4 +1,5 @@
 import os
+import sys
 
 if os.getuid() != 0:
     print("[!]You should execute as root, say the magic word ")
@@ -9,3 +10,5 @@ os.system("cp magician_banner.py /usr/local/bin/")
 os.system("cp magi.py /usr/local/bin/")
 os.system("cp armoury.py /usr/local/bin/")
 
+os.system("clear")
+print("Done.........")
