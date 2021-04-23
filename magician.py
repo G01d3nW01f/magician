@@ -38,7 +38,7 @@ def init():
     
     elif sys.argv[1] == "-q":
 				
-        banner.main()
+        magician_banner.main()
 				
 
 def step1():
