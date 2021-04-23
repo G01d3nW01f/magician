@@ -39,7 +39,7 @@ def init():
     
     elif sys.argv[1] == "-q":
 
-        banner.main()
+        magician_banner.main()
     print(bcolors.GREEN)
     print("[+]It's On!!!!!!")
     print(bcolors.ENDC)
