@@ -33,18 +33,18 @@ def init():
 
         magi.main() 
         print(color_set)
-
-        banner.main()
+        magician_banner.main()
         print(bcolors.ENDC)
     
     elif sys.argv[1] == "-q":
-        print(bcolors.GREEN)
-        magician_banner.main()
-        print(bcolors.ENDC)
+				
+        banner.main()
+				
+
 def step1():
 
     print(bcolors.YELLOW)
-    print("[+]Chose Your IP ")
+    print("[+]Your IP Lists")
     print(bcolors.ENDC)
 
     res = subprocess.getoutput("ifconfig")
@@ -250,7 +250,7 @@ def step6(lhost,selected_port,cmd_number):
         cmd = f"msfconsole -r {file_name}"
 
     os.system(cmd)
-    #os.system(f"rm {file_name}")
+    os.system(f"rm {file_name}")
 
 if __name__ == "__main__":
 
