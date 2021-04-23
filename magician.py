@@ -92,7 +92,7 @@ def step1():
 
     except:
         print(bcolors.RED)
-        print("[!]AhOh... ifconfig command is not available...")
+        print("[!]AhOh... Some Issue Occured...")
         print(bcolors.GREEN)
         lhost = input("[+]Enter Your IP: ")
         print(bcolors.ENDC)
