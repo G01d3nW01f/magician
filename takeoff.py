@@ -14,4 +14,5 @@ os.system("rm /usr/local/bin/magician_banner.py")
 os.system("rm /usr/local/bin/magi.py")
 os.system("rm /usr/local/bin/armoury.py")
 
+os.system("clear")
 print("Done...................")
