@@ -37,9 +37,9 @@ def init():
         print(bcolors.ENDC)
     
     elif sys.argv[1] == "-q":
-				
+
         magician_banner.main()
-				
+
 
 def step1():
 
@@ -49,7 +49,7 @@ def step1():
 
     res = subprocess.getoutput("ifconfig")
 
-    try:
+    if "not found" not in res:
 
         IP_addrs = subprocess.getoutput("ifconfig")
         IP_addrs = IP_addrs.split("\n")
@@ -80,19 +80,37 @@ def step1():
             print(f"-->|{molded}|")
             print(case)
         
-        print(bcolors.GREEN)
-        print("[+]Chose LHOST")
-        chosen = input("> ")
-        print(bcolors.ENDC)
+        while True:
+
+            try:
+
+                print(bcolors.GREEN)
+                print("[+]Chose LHOST")
+                chosen = input("> ")
+                print(bcolors.ENDC)
+
+                if int(chosen) <= len(IP_array):
+                    break
+
+                else:
+
+                    print("[!]Invalid Value...")
+                    print("[+]Valid_range: "+"1 ~ "+str(len(IP_array)))
+    
+            except:
+
+                print("[!]invalid value...")
+                print("[+]Valid_range: "+"1 ~ "+len(IP_array))
+
 
         lhost = IP_array[int(chosen)-1]
         
         del IP_addrs,IP_array,index_array,counter,chosen
         return lhost
 
-    except:
+    else:
         print(bcolors.RED)
-        print("[!]AhOh... Some Issue Occured...")
+        print("[!]AhOh... ifconfig command is not available...")
         print(bcolors.GREEN)
         lhost = input("[+]Enter Your IP: ")
         print(bcolors.ENDC)
@@ -193,7 +211,7 @@ def step4():
         else:
             print(bcolors.RED)
             print("[!]Invalid number ")
-            print("[+]Valid number range: 1~20")
+            print("[+]Valid number range: 1~17")
             print(bcolors.ENDC)
     del allow_array
     
