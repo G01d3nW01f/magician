@@ -4,7 +4,7 @@ import sys
 import os
 import subprocess
 import magi
-import banner
+import magician_banner
 import re
 import random
 import armoury
