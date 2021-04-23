@@ -5,7 +5,7 @@ import sys
 
 if os.getuid() != 0:
   print("[!]You must execute as root...")
-  import sys.exit()
+  sys.exit()
   
 print("@take off")
 
