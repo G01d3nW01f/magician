@@ -1,5 +1,9 @@
 # magician
-this script is reverse shell script and binary file generate, and run the Listener and set some payloads to almostly automatical
+automatically generate the script and binary with msfvenom
+
+and work the multi/handler and set the payload and lhost lport in automatically too
+
+
 
 Requirements:
   
