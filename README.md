@@ -5,7 +5,7 @@ and set the payload and lhost and lport in automatically too
 
 ofcourse multi handler listener will run too in automatically :)
 
-
+Tested:　KaliLinux
 
 Requirements:
   
