@@ -230,7 +230,7 @@ def step5(lhost,selected_port,cmd_number,host_info):
          generated_payload = "sudo " + generated_payload
          
          print(bcolors.BLUE)
-         print("[!]You are not roo user")
+         print("[!]You are not root user")
          print("[+]Adding the magic word to top of Command")
          print(bcolors.ENDC)
 
